@@ -11,8 +11,8 @@ let package = Package(
         .library(name: "SimpleJWTMiddleware", targets: ["SimpleJWTMiddleware"]),
     ],
     dependencies: [
-    .package(url: "https://github.com/vapor/vapor.git", from: "4.0.0"),
-    .package(url: "https://github.com/vapor/jwt.git", from: "4.0.0"),
+    .package(url: "https://github.com/vapor/vapor.git", from: "4.0.0-rc"),
+    .package(url: "https://github.com/vapor/jwt.git", from: "4.0.0-rc"),
     ],
     targets: [
         .target(name: "SimpleJWTMiddleware", dependencies: ["Vapor", "JWT"])
