@@ -6,12 +6,12 @@ public struct Payload: JWTPayload {
     public let firstname: String?
     public let lastname: String?
     public let email: String
-    public let id: UUID
+    public let id: Int
     public let status: Int = 0
     public let exp: String
     public let iat: String
 
-    public init(id: UUID, email: String) {
+    public init(id: Int, email: String) {
         self.id = id
         self.email = email
         self.firstname = nil

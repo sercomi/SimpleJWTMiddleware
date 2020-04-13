@@ -23,19 +23,20 @@ public final class SimpleJWTMiddleware: Middleware {
     }
 
 }
-extension AnyHashable {
-    static let payload: String = "jwt_payload"
+
+private struct SimpleJWTMiddlewareKey: StorageKey {
+    typealias Value = Payload
 }
 
 extension Request {
     public var loggedIn: Bool {
-        if (self.userInfo[.payload] as? Payload) != nil {
+        if (self.storage[SimpleJWTMiddlewareKey.self] != nil) {
             return true
         }
         return false
     }
     public var payload: Payload {
-        get { self.userInfo[.payload] as! Payload }
-        set { self.userInfo[.payload] = newValue }
+        get { self.storage[SimpleJWTMiddlewareKey.self]! }
+        set { self.storage[SimpleJWTMiddlewareKey.self] = newValue }
     }
 }
